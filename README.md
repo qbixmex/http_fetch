@@ -1,6 +1,6 @@
-# Todo App Javascript Tutorial
+# Chuck Norris Fetch API Tutorial
 
-This is a tutorial from Udemy with Fernando Herrera explaining how to make "Promises" and "Callbacks".
+This is a repository tutorial explaining how to make Fetch Data from API using Javascript
 
 ## To build a production app into "docs" folder:
 
