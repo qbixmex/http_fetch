@@ -85,6 +85,6 @@ const drawJoke = ({ id, value }) => {
 };
 
 export const init = () => {
-    createJokeHTML();
-    events()
+    // createJokeHTML();
+    // events()
 };

@@ -1,5 +1,5 @@
-const jokeUrl = "https://api.chucknorris.io/jokes/random";
-
+const jokeUrl  = "https://api.chucknorris.io/jokes/random";
+const usersUrl = "https://reqres.in/api/users?page=1";
 /**
  * @typedef {Object} Joke
  * @property {string} id - Joke ID
@@ -16,9 +16,9 @@ const getJoke = async () => {
 
         const response = await fetch( jokeUrl );
 
-        if ( !response.ok ) throw "Could not get api service";
+        if ( !response.ok ) throw "Could not get jokes from this api service!";
 
-        const { id, icon_url, value } = await response.json()
+        const { id, icon_url, value } = await response.json();
     
         return { id, icon_url, value };
 
@@ -29,7 +29,26 @@ const getJoke = async () => {
     }
 }
 
+const getUsers = async () => {
+    try {
+
+        const response = await fetch( usersUrl );
+
+        if ( !response.ok ) throw "Could not get users from this api service!";
+
+        const { data: users } = await response.json();
+
+        return users;
+
+    } catch ( error ) {
+
+        throw error;
+
+    }
+};
+
 export {
     getJoke,
+    getUsers,
 };
 
