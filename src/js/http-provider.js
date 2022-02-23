@@ -1,5 +1,6 @@
 const jokeUrl  = "https://api.chucknorris.io/jokes/random";
 const usersUrl = "https://reqres.in/api/users?page=1";
+
 /**
  * @typedef {Object} Joke
  * @property {string} id - Joke ID
@@ -29,12 +30,27 @@ const getJoke = async () => {
     }
 }
 
+/**
+ * @typedef {Object} User
+ * @property {number} id         - example: 1
+ * @property {string} first_name - example: "John"
+ * @property {string} last_name  - example: "Doe"
+ * @property {string} email      - example: "johndoe@gmail.com"
+ * @property {string} avatar     - example: "https://fake-domain/image.jpg"
+ */
+
+/**
+ * Get Users from API.
+ * @returns { Promise<void|User[]> }
+ */
 const getUsers = async () => {
     try {
 
         const response = await fetch( usersUrl );
 
-        if ( !response.ok ) throw "Could not get users from this api service!";
+        if ( !response.ok ) {
+            throw `Could not get users from this api service:\n${usersUrl}`
+        };
 
         const { data: users } = await response.json();
 
