@@ -1,6 +1,4 @@
-import { getJoke } from "./js/http-provider";
+import { init } from "./js/jokes-page";
 import "./sass/styles.scss";
 
-getJoke()
-    .then( joke => console.table( joke ) )
-    .catch( error => console.error( error ));
+init();

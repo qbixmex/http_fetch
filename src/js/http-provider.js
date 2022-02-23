@@ -9,7 +9,7 @@ const jokeUrl = "https://api.chucknorris.io/jokes/random";
 
 /**
  * Get Random Joke from API
- * @returns {Promise<Joke|void>}
+ * @returns {Promise<Joke>}
  */
 const getJoke = async () => {
     try {
