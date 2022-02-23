@@ -78,7 +78,8 @@ const events = () => {
 const drawJoke = ({ id, value }) => {
     counter++;
     const item = document.createElement("li");
-    item.innerHTML = `<b>${ counter }. ${ id }</b>: ${ value }`;
+    item.innerHTML = `<b>${ counter }.</b> ${ value }`;
+    item.setAttribute("data-id", `${ id }`);
     item.classList.add("list-group-item");
     list?.append( item );
 };
