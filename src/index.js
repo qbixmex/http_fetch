@@ -1,17 +1,6 @@
+import { getJoke } from "./js/http-provider";
 import "./sass/styles.scss";
 
-const jokeUrl = "https://api.chucknorris.io/jokes/random";
-
-// fetch( jokeUrl ).then( response => {
-//     response.json().then( ({ id, value }) => {
-//         console.log( "ID:", id );
-//         console.log( "Value:", value );
-//     })
-// });
-
-fetch( jokeUrl )
-    .then( response => response.json() )
-    .then( ({ id, value }) => {
-        console.log( "ID:", id );
-        console.log( "Value:", value );
-    });
+getJoke()
+    .then( joke => console.table( joke ) )
+    .catch( error => console.error( error ));
