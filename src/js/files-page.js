@@ -1,3 +1,5 @@
+import { uploadImage } from "./http-provider";
+
 const app = document.getElementById("app");
 
 /** @type {HTMLInputElement|null} */
@@ -12,14 +14,13 @@ const createInputFileHTML = () => {
 
         <input class="form-control mb-4" type="file" accept="image/png, image/jpeg" />
 
-        ${ (imgPicture) ? `<img id="image" class="img-thumbnail" src="" alt="image" />` : ""  }
+        <img id="image" class="img-thumbnail d-none" src="" alt="image" style="width: 200px;" />
     `;
 
     const div = document.createElement("div");
     div.innerHTML = html;
     app?.append(div);
-    inputFile = document.querySelector("input");
-    imgPicture = document.querySelector("#image");
+    inputFile = document.querySelector("input");    
 };
 
 const events = () => {
@@ -27,7 +28,11 @@ const events = () => {
         // @ts-ignore
         const file = event?.target?.files[0];
 
-        console.table( file );
+        imgPicture = document.querySelector("#image");
+
+        uploadImage( file ).then( url => imgPicture && ( imgPicture.src = url ));
+
+        setTimeout(() => imgPicture?.classList.remove("d-none"), 1000);
     });
 };
 

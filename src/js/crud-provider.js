@@ -68,7 +68,6 @@ const updateUser = async ( id, user ) => {
  * @returns {Promise<string|void>}
  */
 const deleteUser = async ( id ) => {
-    
 
     try {
         const response = await fetch( `${ urlCRUD }/${ id }`, {
@@ -76,9 +75,9 @@ const deleteUser = async ( id ) => {
         });
 
         if ( response.ok ) {
-            return "User Deleted"
+            return "User Deleted";
         } else {
-            throw "User could not delete"
+            throw "User could not delete";
         }
     } catch ( error ) {
 
