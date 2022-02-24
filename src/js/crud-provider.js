@@ -62,8 +62,35 @@ const updateUser = async ( id, user ) => {
     return await response.json();
 };
 
+/**
+ * Delete user from database.
+ * @param {number} id
+ * @returns {Promise<string|void>}
+ */
+const deleteUser = async ( id ) => {
+    
+
+    try {
+        const response = await fetch( `${ urlCRUD }/${ id }`, {
+            method: "DELETE"
+        });
+
+        if ( response.ok ) {
+            return "User Deleted"
+        } else {
+            throw "User could not delete"
+        }
+    } catch ( error ) {
+
+        throw error;
+
+    }
+     
+};
+
 export {
     getUser,
     createUser,
     updateUser,
+    deleteUser,
 };
