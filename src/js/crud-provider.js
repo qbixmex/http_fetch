@@ -18,6 +18,29 @@ const getUser = async ( id ) => {
     return data;
 };
 
+/**
+ * Create user to database.
+ * @param {{ name: string, job: string }} user
+ * @returns {Promise<{
+ *  id: string,
+ *  name: string,
+ *  job: string,
+ *  createdAt: string
+ * }>}
+ */
+const createUser = async ( user ) => {
+    const response = await fetch( urlCRUD, {
+        method: "POST",
+        body: JSON.stringify( user ),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    return await response.json();
+};
+
 export {
-    getUser
+    getUser,
+    createUser,
 };
