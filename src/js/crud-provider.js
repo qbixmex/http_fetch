@@ -40,7 +40,30 @@ const createUser = async ( user ) => {
     return await response.json();
 };
 
+/**
+ * Update user to database
+ * @param {number} id
+ * @param {{ name: string, job: string }} user
+ * @returns {Promise<{
+ *  name: string,
+ *  job: string,
+ *  createdAt: string
+ * }>}
+ */
+const updateUser = async ( id, user ) => {
+    const response = await fetch( `${ urlCRUD }/${ id }`, {
+        method: "PATCH",
+        body: JSON.stringify( user ),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    return await response.json();
+};
+
 export {
     getUser,
     createUser,
+    updateUser,
 };
