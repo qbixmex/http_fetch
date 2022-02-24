@@ -1,7 +1,5 @@
-// import { init } from "./js/jokes-page";
+import * as CRUD from "./js/crud-provider";
 
-import { getUsers } from "./js/http-provider";
-import { init } from "./js/users-page";
 import "./sass/styles.scss";
 
-init();
+CRUD.getUser( 1 ).then( console.table );
